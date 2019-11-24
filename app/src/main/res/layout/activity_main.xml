@@ -32,14 +32,14 @@
             app:srcCompat="@drawable/marguerite" />
 
         <Button
-            android:id="@+id/startButton"
+            android:id="@+id/button_start_application"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="64dp"
             android:text="Start"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
-            android:onClick="openCreatePlantForm"
+            android:onClick="startApplication"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

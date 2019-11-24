@@ -11,7 +11,7 @@ android {
         enabled = true
     }
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "com.example.letsplant"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -23,6 +23,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    androidExtensions {
+        /**
+         *  Used to create automatically the @Parcelize methods
+         *  Link: https://kotlinlang.org/docs/tutorials/android-plugin.html#parcelable-implementations-generator
+         */
+        experimental = true
     }
 }
 

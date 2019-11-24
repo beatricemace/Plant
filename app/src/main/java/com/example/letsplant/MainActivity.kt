@@ -1,11 +1,9 @@
-package com.example.myapplication
+package com.example.letsplant
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.databinding.DataBindingUtil
-import com.example.myapplication.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    // Open the form to add a new plant
-    fun openCreatePlantForm(view: View) {
+    // Start the application by opening the creation form
+    fun startApplication(view: View) {
         val intent = Intent(this, CreatePlantActivity::class.java)
         startActivity(intent)
     }
