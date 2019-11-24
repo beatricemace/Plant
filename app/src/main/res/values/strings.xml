@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Let\'s plant</string>
     <string name="name">Let\'s plant</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -9,5 +9,5 @@
     <string name="what_type_of_plant_is_it">What type of plant is it?</string>
     <string name="when_was_it_planted">When was it planted?</string>
     <string name="how_would_you_describe_it">How would you describe it?</string>
-    <string name="done">Done</string>
+    <string name="create">Create</string>
 </resources>
