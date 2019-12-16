@@ -5,8 +5,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Plant(
-    val name: String,
-    val type: String,
-    val date: String,
-    val description: String
+    val id: Int = 0,
+    val name: String? = null,
+    val type: String? = null,
+    val date: String? = null,
+    val description: String? = null
 ) : Parcelable
