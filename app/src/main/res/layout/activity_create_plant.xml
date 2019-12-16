@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePlantActivity">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/name_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -56,6 +56,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create" />
+
+        <Button
+            android:id="@+id/viewplant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View your plant" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
