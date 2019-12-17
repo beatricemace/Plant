@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+const val DATABASE = "com.example.letsplant.DATABASE"
+
+public class MainActivity : AppCompatActivity() {
+
+    private var database: DatabaseHelper? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        database = DatabaseHelper(this)
         setContentView(R.layout.activity_main)
     }
 
@@ -17,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, CreatePlantActivity::class.java)
         startActivity(intent)
     }
+
 }
 
 
