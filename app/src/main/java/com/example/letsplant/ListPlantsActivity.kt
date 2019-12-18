@@ -14,55 +14,41 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
-
-
 class ListPlantsActivity : AppCompatActivity() {
 
-
-    val myDB = DatabaseHelper(this)
-    //DatabaseHelper myDB = NULL;ListofPlants
-
-    @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_plants)
 
-        // Retrieve the database from the intent
+        val database = (getApplication() as GlobalState).getDatabase()
 
-        val theList = ArrayList<Plant>()
-        val data = myDB.getListContents()
-        if (data.getCount() === 0) {
+        // Retrieve the plants from the database
+        val plantList = ArrayList<Plant>()
+        val plants = database.getListContents()
+
+        if (plants.getCount() === 0) {
             Toast.makeText(this, "There are no contents in this list!", Toast.LENGTH_LONG).show()
         } else {
-            while (data.moveToNext()) {
-                val Pla = Plant()
+            while (plants.moveToNext()) {
+                val plant = Plant()
 
-                Pla.id = data.getString(data.getColumnIndex("ID")).toInt()
-                Pla.name = data.getString(data.getColumnIndex("Name"))
-                Pla.type = data.getString(data.getColumnIndex("Type"))
-                Pla.date = data.getString(data.getColumnIndex("Date"))
-                Pla.description = data.getString(data.getColumnIndex("Decription"))
-
-                theList.add(Pla)
-                val listAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, theList)
-                ListofPlants.setAdapter(listAdapter)
+                plant.id = plants.getString(plants.getColumnIndex("ID")).toInt()
+                plant.name = plants.getString(plants.getColumnIndex("Name"))
+                plant.type = plants.getString(plants.getColumnIndex("Type"))
+                plant.date = plants.getString(plants.getColumnIndex("Date"))
+                plant.description = plants.getString(plants.getColumnIndex("Decription"))
+                plantList.add(plant)
             }
         }
 
-        // Retrieve the plants from the database
-        //val plants = myDB.getPlants()
-
-        val adapter = Plantlistadapteur( this@ListPlantsActivity, theList)
-        ListofPlants.adapter = adapter
+        ListofPlants.setAdapter(Plantlistadapteur(this@ListPlantsActivity, plantList))
 
         // Print in the terminal the plant's name
-        //plants.forEach { plant -> println(plant.name) }
+        plantList.forEach { plant -> println(plant.name) }
     }
 
     // Open the form to create a new plant
     fun openCreatePlantForm(view: View) {
-        val intent = Intent(this, CreatePlantActivity::class.java)
-        startActivity(intent)
-
+        startActivity(Intent(this, CreatePlantActivity::class.java))
     }
 }
